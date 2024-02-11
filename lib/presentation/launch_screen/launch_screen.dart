@@ -22,6 +22,7 @@ class LaunchScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor, // Set the primary color as background color
       body: SizedBox(
         width: double.maxFinite,
+
         child: Column(
           children: [
             Spacer(

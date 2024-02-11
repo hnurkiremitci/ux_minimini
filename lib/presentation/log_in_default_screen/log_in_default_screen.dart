@@ -33,6 +33,7 @@ class _LogInDefaultScreenState extends State<LogInDefaultScreen> {
               ImageConstant.imgLayer1WhiteA700, // Your SVG asset path
               width: screenWidth * 0.5,
             ),
+            SizedBox(height: screenHeight * 0.1),
             Expanded(
               child: Container(
                 width: screenWidth,
@@ -54,12 +55,17 @@ class _LogInDefaultScreenState extends State<LogInDefaultScreen> {
                         children: <Widget>[
                           SizedBox(height: 32), // Provide space from top of the white box
                           Text(
-                            "Welcome back 👋",
-                            style: theme.textTheme.headline4?.copyWith(color: Colors.black),
+                            "Hoş Geldiniz!  👋",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600, // SemiBold as defined in pubspec.yaml
+                              fontSize: 24.0, // Adjust the size as needed
+                              color: Colors.black,
+                            ),
                           ),
                           SizedBox(height: 16),
                           Text(
-                            "Enter your details to get access to your account",
+                            "Lutfen email ve sifrenizi giriniz",
                             style: theme.textTheme.bodyMedium,
                           ),
                           SizedBox(height: 32),
@@ -71,26 +77,31 @@ class _LogInDefaultScreenState extends State<LogInDefaultScreen> {
                           SizedBox(height: 16),
                           CustomTextFormField(
                             controller: passwordController,
-                            hintText: "Password",
+                            hintText: "Şifre",
                             textInputAction: TextInputAction.done,
                             textInputType: TextInputType.visiblePassword,
                             obscureText: true,
                           ),
                           Align(
-                            alignment: Alignment.centerRight,
+                            alignment: Alignment.center,
                             child: TextButton(
                               onPressed: () {
                                 // Add your onPressed functionality
                               },
                               child: Text(
-                                "Forget password?",
-                                style: theme.textTheme.bodyText2,
+                                "Sifremi Unuttum",
+                                style: TextStyle(
+                                  color: Colors.black26,
+                                  fontSize: 16.fSize,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.bold, // Small text size, adjust the value as needed
+                              ),
                               ),
                             ),
                           ),
                           SizedBox(height: 2),
                           CustomElevatedButton(
-                            text: "Login",
+                            text: "Giris Yapin",
                             onPressed: () {
                               // Add your onPressed functionality
                             },
