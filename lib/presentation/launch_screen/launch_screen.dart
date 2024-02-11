@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mininifeb8/core/app_export.dart';
 
 class LaunchScreen extends StatelessWidget {
@@ -12,30 +13,29 @@ class LaunchScreen extends StatelessWidget {
       Navigator.pushNamed(context, AppRoutes.logInDefaultScreen);
     });
 
-    return SafeArea(
-      child: Scaffold(
-        body: SizedBox(
-          width: double.maxFinite,
-          child: Column(
-            children: [
-              CustomImageView(
-                imagePath: ImageConstant.imgTopStatusBar,
-                height: 20.v,
-                width: 393.h,
-              ),
-              Spacer(
-                flex: 45,
-              ),
-              CustomImageView(
-                imagePath: ImageConstant.imgLayer1,
-                height: 158.v,
-                width: 239.h,
-              ),
-              Spacer(
-                flex: 54,
-              ),
-            ],
-          ),
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Set status bar color to transparent
+      statusBarIconBrightness: Brightness.light, // Status bar icons' color
+    ));
+
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor, // Set the primary color as background color
+      body: SizedBox(
+        width: double.maxFinite,
+        child: Column(
+          children: [
+            Spacer(
+              flex: 45,
+            ),
+            CustomImageView(
+              imagePath: ImageConstant.imgLayer1,
+              height: 158.v,
+              width: 239.h,
+            ),
+            Spacer(
+              flex: 54,
+            ),
+          ],
         ),
       ),
     );
