@@ -15,6 +15,7 @@ class _LogInDefaultScreenState extends State<LogInDefaultScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -77,10 +78,20 @@ class _LogInDefaultScreenState extends State<LogInDefaultScreen> {
                           SizedBox(height: 16),
                           CustomTextFormField(
                             controller: passwordController,
+                            obscureText: !_passwordVisible,
                             hintText: "Şifre",
                             textInputAction: TextInputAction.done,
                             textInputType: TextInputType.visiblePassword,
-                            obscureText: true,
+                            suffix: IconButton(
+                              icon: _passwordVisible
+                                  ? SvgPicture.asset(ImageConstant.imgIconsetInvisible) // Icon when password is visible
+                                  : SvgPicture.asset(ImageConstant.imgIconsetInvisible), // Icon when password is hidden
+                              onPressed: () {
+                                setState(() {
+                                  _passwordVisible = !_passwordVisible;
+                                });
+                              },
+                            ),
                           ),
                           Align(
                             alignment: Alignment.center,
